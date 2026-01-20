@@ -1,0 +1,24 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Resources:
+  myAppInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-080e449218d4434fa
+      InstanceType: t2.micro
+      KeyName: KotiniUCM24
+      SubnetId: subnet-00ec0a649848bcd25
+      Tags:
+        - Key: Name
+          Value: "Kotini EC2 Instance"
+        - Key: Environment
+          Value: "Dev"
+        - Key: cost-center
+          Value: "102030-40"
+
+
+Creating the Stack
+aws cloudformation deploy --template-file 001_create_vpc.yml --stack-name kotini-vpc-test
+
+Describing the Stack
+aws cloudformation describe-stacks --stack-name kotini-vpc-test
